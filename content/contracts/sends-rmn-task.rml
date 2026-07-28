@@ -1,0 +1,9 @@
+#lang rmn/v2
+(map
+  ("type" "SendRmnA2ATaskLaw")
+  ("version" 1)
+  ("provider" "urn:ame:a2a-rmn-hire-and-verify-cell")
+  ("precondition" "One canonical RMN CBOR request, exact A2A Agent Card URL, required extensions, authorization reference, and bounded deadline.")
+  ("operation" "Discover and verify the signed Agent Card, negotiate its required standard extensions, submit the exact RMN request once, observe the task to a terminal state, and return the provider-preserving result receipt.")
+  ("postcondition" "The result binds the exact request and provider, remains canonical RMN CBOR, and names the observed A2A task and result identities.")
+  ("refusal" "Refuse an unsigned required card, unsupported extension, noncanonical RMN, identity-only authority, unauthorized target, credential crossing origins, ambiguous terminal state, replayed invocation, or result that does not close the request."))

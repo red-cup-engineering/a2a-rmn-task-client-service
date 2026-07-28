@@ -1,0 +1,17 @@
+{
+  "name": "a2a-rmn-hire-and-verify",
+  "description": "Hire one exact A2A provider and verify one canonical RMN task exchange.",
+  "package": {
+    "name": "@red-cup-engineering/a2a-rmn-task-client-service",
+    "version": "1.1.0",
+    "entrypoint": "./src/send-rmn-task.mjs"
+  },
+  "operation": {
+    "name": "send-rmn-a2a-task",
+    "inputSchema": "content/schemas/send-rmn-task-request.schema.json",
+    "outputSchema": "content/schemas/send-rmn-task-receipt.schema.json",
+    "refusalSchema": "content/schemas/send-rmn-task-refusal.schema.json"
+  },
+  "rmnLaw": "content/contracts/sends-rmn-task.rml"
+}
+

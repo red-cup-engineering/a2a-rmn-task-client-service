@@ -1,0 +1,76 @@
+{
+  "name": "@red-cup-engineering/a2a-rmn-task-client-service",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "One Capability Cell that hires an exact A2A provider and verifies a canonical RMN task exchange.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emsenn/a2a-rmn-hire-and-verify-cell.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./types/client.d.mts",
+      "import": "./src/send-rmn-task.mjs"
+    },
+    "./src/send-rmn-task.mjs": "./src/send-rmn-task.mjs"
+  },
+  "bin": {
+    "send-rmn-a2a-task": "./src/send-rmn-task.mjs"
+  },
+  "scripts": {
+    "check": "node --check src/send-rmn-task.mjs",
+    "test": "node --test",
+    "verify": "npm run check && npm test"
+  },
+  "dependencies": {
+    "@a2a-js/sdk": "1.0.0-beta.0",
+    "@red-cup-engineering/a2a-agent-card-discovery-service": "1.0.0",
+    "@red-cup-engineering/a2a-rmn-part-service": "1.0.0",
+    "@lenticule-science/rmn-semantic-conformance-die": "6.0.0"
+  },
+  "x-agentic-metro-enterprise": {
+    "node-id": "a2a-rmn-hire-and-verify-cell",
+    "actor": "urn:ame:a2a-rmn-hire-and-verify-cell",
+    "organizational-kind": "capability-cell",
+    "owners": [
+      "a2a-services-section"
+    ],
+    "membrane": {
+      "law": "src/",
+      "lasting-instances": "content/",
+      "append-only-instances": "data/"
+    },
+    "admission": "one canonical RMN CBOR request, exact discovered A2A Agent Card, required extensions, and scoped authorization reference; task lifetime ends only by terminal provider state or explicit customer cancellation",
+    "refusal": "unsigned required card, unsupported extension, noncanonical RMN, identity-only authority, unauthorized target, cross-origin credential, replay, ambiguous terminal state, or result not closing the request",
+    "operation-catalog": {
+      "send-rmn-a2a-task": {
+        "law": "content/contracts/sends-rmn-task.rml",
+        "inputSchema": "content/schemas/send-rmn-task-request.schema.json",
+        "outputSchema": "content/schemas/send-rmn-task-receipt.schema.json",
+        "refusalSchema": "content/schemas/send-rmn-task-refusal.schema.json",
+        "protocol": "A2A 1.0",
+        "chain": "eip155:5615610",
+        "legacyCompatibility": false
+      }
+    }
+  },
+  "x-semiotic-voxel": {
+    "profile": "org.harmonious-union.semiotic-voxel.v1",
+    "owner": "red-cup-engineering",
+    "kind": "capability-cell",
+    "actor": "urn:ame:a2a-rmn-hire-and-verify-cell",
+    "operations": [
+      "send-rmn-a2a-task"
+    ],
+    "capabilities": [
+      {
+        "capability": "a2a-rmn-task-client-service",
+        "faces": [
+          "send-rmn-a2a-task"
+        ]
+      }
+    ],
+    "package": "@red-cup-engineering/a2a-rmn-task-client-service"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://emsenn.github.io/a2a-rmn-hire-and-verify-cell/schemas/send-rmn-task-refusal.schema.json",
+  "title": "Send RMN A2A task refusal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile", "request", "reason"],
+  "properties": {
+    "profile": {"const": "org.emsenn.a2a-rmn-hire-refusal.v1"},
+    "request": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"},
+    "reason": {
+      "enum": [
+        "authorization-required",
+        "authorization-mismatch",
+        "agent-card-invalid",
+        "extension-unsupported",
+        "input-noncanonical",
+        "deadline-expired",
+        "invocation-replayed",
+        "provider-refused",
+        "result-mismatch"
+      ]
+    }
+  }
+}
+
