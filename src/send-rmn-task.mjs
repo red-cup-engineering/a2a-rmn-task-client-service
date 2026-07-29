@@ -301,7 +301,7 @@ export async function submitRmnTask(options) {
 export async function sendRmnTask({ agentUrl, extensions = [], message: source, requireSignature = false, bearerTokenFile, onTaskObservation, signal, callbackUrl, callbackToken }) {
   // A nested cell relinquishes its transport as soon as durable callback
   // custody exists.  A direct caller that supplied no callback explicitly
-  // chose the blocking A2A operation; the provider, not a client deadline,
+  // chose the blocking A2A operation; the provider, not a client temporal ceiling,
   // determines when that connection yields a terminal result.
   const explicitlyAcceptedCallbackCustody = callbackUrl !== undefined || callbackToken !== undefined;
   const hasCallbackPore = explicitlyAcceptedCallbackCustody
