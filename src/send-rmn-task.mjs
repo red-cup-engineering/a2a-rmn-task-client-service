@@ -5,7 +5,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { AGENT_CARD_PATH, AgentCard, Message, Role, Task, TaskState } from "@a2a-js/sdk";
 import { ClientFactory, JsonRpcTransportFactory, RestTransportFactory, ServiceParameters, createAuthenticatingFetchWithRetry, withA2AExtensions } from "@a2a-js/sdk/client";
-import { SOVEREIGN_CIRCUIT_INTERFACE_EXTENSION, circuitInterfaceFromAgentCard } from "@lenticule-science/rmn-semantic-conformance-die/hierarchical-circuit";
+import { SOVEREIGN_CIRCUIT_INTERFACE_EXTENSION, circuitInterfaceFromAgentCard } from "@red-cup-engineering/rmn-semantic-conformance-die/hierarchical-circuit";
 import { extractRmnPart } from "@red-cup-engineering/a2a-rmn-part-service";
 import { discoverAgentCard, discoverSignedAgentCard } from "@red-cup-engineering/a2a-agent-card-discovery-service";
 

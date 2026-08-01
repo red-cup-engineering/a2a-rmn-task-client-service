@@ -27,6 +27,6 @@
     "@a2a-js/sdk": "1.0.0-beta.0",
     "@red-cup-engineering/a2a-agent-card-discovery-service": "1.0.1",
     "@red-cup-engineering/a2a-rmn-part-service": "1.0.1",
-    "@lenticule-science/rmn-semantic-conformance-die": "6.0.1"
+    "@red-cup-engineering/rmn-semantic-conformance-die": "6.0.1"
   }
 }
