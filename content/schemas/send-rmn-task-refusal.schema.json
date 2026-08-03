@@ -7,7 +7,7 @@
   "required": ["profile", "request", "reason"],
   "properties": {
     "profile": {"const": "org.emsenn.a2a-rmn-hire-refusal.v1"},
-    "request": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"},
+    "request": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$"},
     "reason": {
       "enum": [
         "authorization-required",

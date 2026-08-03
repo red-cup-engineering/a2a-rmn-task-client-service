@@ -22,6 +22,9 @@ export interface RmnA2aSubmission {
   readonly extensions: readonly string[];
 }
 
+export declare const SOVEREIGN_CIRCUIT_INTERFACE_EXTENSION: string;
+export declare function circuitInterfaceFromAgentCard(card: Record<string, any>): Readonly<{ account: string }>;
+
 export declare class A2aTaskPendingError extends Error {
   readonly task: Record<string, any>;
   readonly taskId?: string;

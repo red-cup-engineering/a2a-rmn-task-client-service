@@ -8,8 +8,8 @@
   "properties": {
     "profile": {"const": "org.emsenn.a2a-rmn-hire-request.v1"},
     "agentCard": {"type": "string", "format": "uri"},
-    "inputNi": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"},
-    "authorization": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"},
+    "inputNi": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$"},
+    "authorization": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$"},
     "nonce": {"type": "string", "minLength": 16, "maxLength": 256},
     "deadline": {"type": "string", "format": "date-time"},
     "requiredExtensions": {

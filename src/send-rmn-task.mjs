@@ -5,9 +5,17 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { AGENT_CARD_PATH, AgentCard, Message, Role, Task, TaskState } from "@a2a-js/sdk";
 import { ClientFactory, JsonRpcTransportFactory, RestTransportFactory, ServiceParameters, createAuthenticatingFetchWithRetry, withA2AExtensions } from "@a2a-js/sdk/client";
-import { SOVEREIGN_CIRCUIT_INTERFACE_EXTENSION, circuitInterfaceFromAgentCard } from "@red-cup-engineering/rmn-semantic-conformance-die/hierarchical-circuit";
 import { extractRmnPart } from "@red-cup-engineering/a2a-rmn-part-service";
 import { discoverAgentCard, discoverSignedAgentCard } from "@red-cup-engineering/a2a-agent-card-discovery-service";
+
+export const SOVEREIGN_CIRCUIT_INTERFACE_EXTENSION = "ni:///sha-256;wzh-zYeFQCsh4zAzGS34uacNV4qJeIEmCKIUUWyRZ-M";
+const CAIP10 = /^[-a-z0-9]{3,8}:[-_a-zA-Z0-9]{1,32}:[-.%a-zA-Z0-9]{1,128}$/u;
+export function circuitInterfaceFromAgentCard(card) {
+  const accounts = [...new Set([card?.provider?.account, card?.provider?.id, card?.provider?.url]
+    .filter((entry) => typeof entry === "string" && CAIP10.test(entry)))];
+  if (accounts.length !== 1) throw new Error("sovereign A2A provider must expose exactly one CAIP-10 account");
+  return Object.freeze({ account: accounts[0] });
+}
 
 function value(flag) { const at = process.argv.indexOf(flag); return at === -1 ? undefined : process.argv[at + 1]; }
 function values(flag) { const found = []; for (let index = 0; index < process.argv.length; index += 1) if (process.argv[index] === flag) found.push(process.argv[index + 1]); return found; }

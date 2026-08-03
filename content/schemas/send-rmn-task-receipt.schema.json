@@ -7,12 +7,12 @@
   "required": ["profile", "request", "provider", "task", "inputNi", "outputNi", "authorization"],
   "properties": {
     "profile": {"const": "org.emsenn.a2a-rmn-hire-receipt.v1"},
-    "request": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"},
+    "request": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$"},
     "provider": {"type": "string", "minLength": 1},
     "task": {"type": "string", "minLength": 1},
-    "inputNi": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"},
-    "outputNi": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"},
-    "authorization": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{43}$"}
+    "inputNi": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$"},
+    "outputNi": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$"},
+    "authorization": {"type": "string", "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$"}
   }
 }
 
