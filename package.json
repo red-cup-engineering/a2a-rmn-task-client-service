@@ -6,7 +6,7 @@
   "description": "One Capability Cell that hires an exact A2A provider and verifies a canonical RMN task exchange.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/emsenn/a2a-rmn-hire-and-verify-cell.git"
+    "url": "git+https://github.com/red-cup-engineering/a2a-rmn-task-client-service.git"
   },
   "exports": {
     ".": {
