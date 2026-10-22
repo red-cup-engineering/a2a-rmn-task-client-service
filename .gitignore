@@ -1,0 +1,4 @@
+# Runtime signing/credential material: provisioned at deploy time, never committed.
+**/data/agent-card-signing/*.pem
+**/data/credentials/*.pem
+**/data/a2a/*.pem
