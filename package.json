@@ -27,5 +27,10 @@
     "@a2a-js/sdk": "1.0.0-beta.0",
     "@red-cup-engineering/a2a-agent-card-discovery-service": "workspace:*",
     "@red-cup-engineering/a2a-rmn-part-service": "workspace:*"
+  },
+  "license": "MIT",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
   }
 }
